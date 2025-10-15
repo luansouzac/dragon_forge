@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+
+import dragonLogo from '@/assets/icons/icon.png'
 </script>
 
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
     <div class="container">
-      <RouterLink to="/" class="navbar-brand fw-bold fs-4">
-        🐉 Dragon Forge
+      <RouterLink to="/" class="navbar-brand fw-bold fs-4 d-flex align-items-center">
+        <img :src="dragonLogo" alt="Dragon Forge Logo" width="64" height="64" class="me-2">
+        Dragon Forge
       </RouterLink>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
