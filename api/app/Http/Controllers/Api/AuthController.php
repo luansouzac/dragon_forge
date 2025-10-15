@@ -52,7 +52,9 @@ class AuthController extends Controller
             return response()->json(['message' => 'Credenciais inválidas'], 401);
         }
 
-        $user = $request->user();
+
+        $user = Auth::user();
+
         $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json([
