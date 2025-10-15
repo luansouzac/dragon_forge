@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+$main-bg:           #0A0A0A;
+$accent-primary:    #00A0FF;
+$secondary-medium:  #002CFF;
+$text-primary:      #FFFFFF;
+$text-secondary:    #CCCCCC;
+
+$body-bg:       $main-bg;
+$body-color:    $text-primary;
+$primary:       $accent-primary;
+$secondary:     $secondary-medium;
+$link-color:    $accent-primary;
+$link-hover-color: lighten($accent-primary, 15%);
+
+$font-family-sans-serif: 'Poppins', sans-serif;
+$headings-font-weight: 700;
+
+@import "bootstrap/scss/bootstrap";
