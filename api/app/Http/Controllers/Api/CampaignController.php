@@ -51,7 +51,7 @@ class CampaignController extends Controller
      */
     public function update(Request $request, Campaign $campaign)
     {
-      
+
         return response()->json(['message' => 'Funcionalidade ainda não implementada']);
     }
 
@@ -61,5 +61,30 @@ class CampaignController extends Controller
     public function destroy(Campaign $campaign)
     {
         return response()->json(['message' => 'Funcionalidade ainda não implementada']);
+    }
+
+    public function addParticipant(Request $request, Campaign $campaign)
+    {
+        $request->validate([
+            'user_ids' => 'required|array',
+            'user_ids.*' => 'exists:users,id',
+        ]);
+
+        $campaign->participants()->syncWithoutDetaching($request->user_ids);
+
+        $campaign->load('participants');
+
+        return response()->json($campaign);
+    }
+
+    public function removeParticipant(Request $request, Campaign $campaign)
+    {
+        $request->validate(['user_id' => 'required|exists:users,id']);
+
+        $userId = $request->user_id;
+
+        $campaign->participants()->detach($userId);
+
+        return response()->json(['message' => 'Usuário removido com sucesso']);
     }
 }
